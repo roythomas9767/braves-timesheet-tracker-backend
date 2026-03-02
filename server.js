@@ -731,7 +731,7 @@ app.get('/api/test', (req, res) => {
 
 // --- Start server
 const PORT = 3000;
-httpServer.listen(PORT, () => {
+httpServer.listen(process.env.PORT || PORT, () => {
      console.log(`\nBackend + Socket.IO running on http://localhost:${PORT}`);
      console.log(`   Geckodriver: ${GECKODRIVER_PATH}\n`);
 });
