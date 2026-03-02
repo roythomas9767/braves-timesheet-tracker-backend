@@ -1,0 +1,16 @@
+{
+  "name": "timesheet-tracker-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.0",
+    "geckodriver": "^6.1.0",
+    "mongodb": "^6.5.0",
+    "selenium-webdriver": "^4.41.0",
+    "socket.io": "^4.8.3"
+  }
+}
