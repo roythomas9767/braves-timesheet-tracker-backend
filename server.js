@@ -10,14 +10,22 @@ const firefox = require('selenium-webdriver/firefox');
 // ─── Express + HTTP + Socket.IO setup ────────────────────────────────────────
 const app = express();
 const httpServer = http.createServer(app);
+
+// ─── Allowed origins (add your Netlify URL here) ─────────────────────────────
+const ALLOWED_ORIGINS = [
+     'http://localhost:4200',
+     'http://localhost:3000',
+     /\.netlify\.app$/,          // matches any *.netlify.app subdomain
+];
+
 const io = new SocketIOServer(httpServer, {
      cors: {
-          origin: '*',
+          origin: ALLOWED_ORIGINS,
           methods: ['GET', 'POST']
      }
 });
 
-app.use(cors());
+app.use(cors({ origin: ALLOWED_ORIGINS }));
 app.use(express.json({ limit: '50mb' }));
 
 // ─── MongoDB ─────────────────────────────────────────────────────────────────
